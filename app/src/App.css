@@ -1,0 +1,29 @@
+.App {
+    text-align: left;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.block {
+    height: 300px;
+    overflow-y: scroll;
+    margin: 20px 0;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    padding: 20px 10px;
+    border-bottom: 1px solid;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+button {
+    width: 100%;
+    margin-top: 10px;
+}
