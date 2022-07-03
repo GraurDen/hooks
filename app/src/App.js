@@ -1,34 +1,35 @@
 import React from "react";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import "./App.css";
 
-//https://youtu.be/8Yy6MDsF-Tg?t=502
+// https://youtu.be/8Yy6MDsF-Tg?t=502 - useRef
+// https://youtu.be/F8EvdTsl6hU - useCallback
+// https://youtu.be/F8EvdTsl6hU?t=928 useCallback2
 
 function App() {
     const [numbers, setNumbers] = useState([1, 2, 3, 4, 5]);
     const ulElem = useRef();
+    const numRef = useRef();
+    numRef.current = numbers;
 
-    function addNumber() {
+    const start = () => {
+        ulElem.current.addEventListener("scroll", handleScroll);
+    };
+
+    const stop = () => {
+        ulElem.current.removeEventListener("scroll", handleScroll);
+        console.log("remove scroll");
+        console.log("ulElem", ulElem.current);
+    };
+
+    const addNumber = () => {
         const lastNumber = numbers[numbers.length - 1];
         setNumbers([...numbers, lastNumber + 1]);
-    }
+    };
 
-    useEffect(() => {
-        ulElem.current.addEventListener('scroll', handleScroll)
+    const handleScroll = useCallback(() => {
+        console.log("that was scrolling", numRef.current);
     }, []);
-
-    console.log(numbers);
-
-    const handleScroll = () => {
-        console.log("that was scrolling");
-    };
-
-    const removescroll = () => {
-        ulElem.current.removeEventListener("scroll", handleScroll);
-        console.log('remove scroll')
-    };
-
-
 
     return (
         <div className="App">
@@ -41,7 +42,8 @@ function App() {
             </div>
 
             <button onClick={addNumber}>add number</button>
-            <button onClick={removescroll}>remove scroll</button>
+            <button onClick={start}>start</button>
+            <button onClick={stop}>stop</button>
         </div>
     );
 }
