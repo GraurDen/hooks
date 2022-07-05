@@ -1,20 +1,33 @@
 .App {
-    text-align: center;
-    width: 100%;
-    max-width: 500px;
-    margin: 0 auto;
+  text-align: center;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
 }
 
 .block {
-    margin: 20px 0;
-    font-size: 30px;
-    font-weight: bold;
+  margin: 20px 0;
+  font-size: 30px;
+  font-weight: bold;
 }
 
 button {
-    width: 40%;
-    display: inline-block;
-    margin: 10px;
-    font-size: 20px;
-    font-weight: bold;
+  width: 40%;
+  display: inline-block;
+  margin: 10px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.counter {
+  display: flex;
+  width: 300px;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+h3 {
+  text-align: left;
+  text-decoration: underline;
 }
