@@ -10,13 +10,8 @@ import Buttons from "./components/Buttons";
 function App() {
     const [count, setCount] = useState(0);
 
-    const onPlus = () => {
-        setCount(count + 1);
-    };
-
-    const onMinus = () => {
-        setCount(count - 1);
-    };
+    const onPlus = useCallback(() => setCount((count) => count + 1), []);
+    const onMinus = useCallback(() => setCount((count) => count - 1), []);
 
     return (
         <div className="App">

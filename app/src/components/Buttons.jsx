@@ -1,4 +1,4 @@
-import React from "react";
+import { React, memo } from "react";
 
 const Buttons = ({ onPlus, onMinus }) => {
     console.log("Button render");
@@ -11,4 +11,4 @@ const Buttons = ({ onPlus, onMinus }) => {
     );
 };
 
-export default Buttons;
+export default memo(Buttons);
